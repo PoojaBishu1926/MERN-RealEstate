@@ -1,27 +1,15 @@
-import "./index.css";
-import Home from "./components/Home";
-import About from "./components/About";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SignIn from "./components/SignIn";
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
 
-const appRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-    children: [
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/signin",
-        element: <SignIn />,
-      },
-    ],
-  },
-]);
 const App = () => {
-  return <RouterProvider router={appRouter} />;
+  return (
+    <div>
+      <Header />
+      <div className="mt-16 md:mt-20">
+        <Outlet />
+      </div>
+    </div>
+  );
 };
 
 export default App;
